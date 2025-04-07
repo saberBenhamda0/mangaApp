@@ -59,6 +59,7 @@ const FavouritesSection = () => {
     style={{
       width: "100%",
       marginTop:15,
+      marginBottom:30,
     }}
   >
     <View
@@ -76,6 +77,7 @@ const FavouritesSection = () => {
           color: Colors.typographie.main,
           fontWeight: 400,
           fontSize: typographie.h1.fontSize,
+          fontFamily:'Roboto_700Bold'
         }}
       >
         Favorites Shows

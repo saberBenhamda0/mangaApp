@@ -36,7 +36,7 @@ const SearshBar = () => {
       />
       <Text
         style={{
-          color: "white",
+          color: "#F8F9FA",
           fontWeight: 600,
           fontSize: 14,
           marginVertical: "auto",

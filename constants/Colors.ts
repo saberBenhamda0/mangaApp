@@ -31,7 +31,7 @@ export const Colors = {
     primary:"gray",
   },
   typographie:{
-    main:"white",
-    secondary:'gray'
+    main:"#F8F9FA",
+    secondary:'#6C757D'
   }
 };

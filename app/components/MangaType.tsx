@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
         alignSelf:'flex-start',
         color:Colors.dark.backgroundSecondaty,
         borderRadius:4,
-        boxShadow: `1 1 1 1 ${Colors.dark.backgroundPrimary} `,
+        boxShadow: `1 1 10 1 ${Colors.dark.backgroundPrimary} `,
         padding:4
     },
     mangaTagText:{
         fontWeight:300,
         fontSize:8,
-        color:'white',
+        color:'#F8F9FA',
     }
 
 })

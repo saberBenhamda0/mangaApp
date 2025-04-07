@@ -3,7 +3,7 @@ import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import Card from '../components/Card';
 import { useNavigation } from '@react-navigation/native';
-
+import Swiper from 'react-native-swiper'
 
 
 const Home = () => {
@@ -11,6 +11,8 @@ const Home = () => {
   return (
     <ScrollView style={styles.mainWrapper}>
       <View style={styles.imageOverlay}>
+        <Swiper >
+          <View>
         <Image source={require("../../assets/images/mangaApp.png")} style={styles.image} />
         <LinearGradient
           style={styles.linearGradient}
@@ -18,7 +20,50 @@ const Home = () => {
           end={{ x: 0, y: 1 }}
           colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)']}
         />
+          </View>
+          <View>
+        <Image source={require("../../assets/images/icon.png")} style={styles.image} />
+        <LinearGradient
+          style={styles.linearGradient}
+          start={{ x: 0, y: 0.5 }}
+          end={{ x: 0, y: 1 }}
+          colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)']}
+        />
+          </View>
+
+          <View>
+        <Image source={require("../../assets/images/icon.png")} style={styles.image} />
+        <LinearGradient
+          style={styles.linearGradient}
+          start={{ x: 0, y: 0.5 }}
+          end={{ x: 0, y: 1 }}
+          colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)']}
+        />
+          </View>
+          <View>
+        <Image source={require("../../assets/images/icon.png")} style={styles.image} />
+        <LinearGradient
+          style={styles.linearGradient}
+          start={{ x: 0, y: 0.5 }}
+          end={{ x: 0, y: 1 }}
+          colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)']}
+        />
+          </View>
+        </Swiper>
       </View>
+
+      <View style={styles.textWrapper}>
+        <Text style={styles.TopMangaText}>your latest reads if you are login</Text>
+        <Text style={styles.seeAllText}>See all</Text>
+      </View>
+
+      <ScrollView horizontal contentContainerStyle={styles.mangaScroll}>
+        {[1, 2, 3, 4].map((id) => (
+          <TouchableOpacity key={id}>
+            <Card isChapterNumberShown={true} />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
 
       <View style={styles.textWrapper}>
         <Text style={styles.TopMangaText}>Top mangas</Text>
@@ -32,6 +77,21 @@ const Home = () => {
           </TouchableOpacity>
         ))}
       </ScrollView>
+
+      <View style={styles.textWrapper}>
+        <Text style={styles.TopMangaText}>Latest releases</Text>
+        <Text style={styles.seeAllText}>See all</Text>
+      </View>
+
+      <ScrollView horizontal contentContainerStyle={styles.mangaScroll}>
+        {[1, 2, 3, 4].map((id) => (
+          <TouchableOpacity key={id}>
+            <Card isChapterNumberShown={true} />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+
+
     </ScrollView>
   );
 };
@@ -67,7 +127,7 @@ const styles = StyleSheet.create({
   },
   TopMangaText: {
     fontWeight: "600",
-    color: 'white',
+    color: '#F8F9FA',
     fontSize: 20,
     fontFamily: 'Roboto, sans-serif',
   },
@@ -88,7 +148,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1E1E1E',
   },
   detailsText: {
-    color: 'white',
+    color: '#F8F9FA',
     fontSize: 22,
     fontWeight: 'bold',
   },

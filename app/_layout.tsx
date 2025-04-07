@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import {  Roboto_400Regular, Roboto_700Bold, Roboto_500Medium, Roboto_600SemiBold, Roboto_300Light } from '@expo-google-fonts/roboto';
+import setDefaultFont from '@/app/override/setupFont.js'
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -14,7 +16,11 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    Roboto_400Regular,
+    Roboto_700Bold,
+    Roboto_500Medium,
+    Roboto_600SemiBold,
+    Roboto_300Light
   });
 
   useEffect(() => {
@@ -22,6 +28,9 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
+  setDefaultFont('Roboto_400Regular'); // 👈 set once fonts are ready
+
 
   if (!loaded) {
     return null;
