@@ -33,6 +33,7 @@ const Home = () => {
 
           <View>
         <Image source={require("../../assets/images/icon.png")} style={styles.image} />
+        
         <LinearGradient
           style={styles.linearGradient}
           start={{ x: 0, y: 0.5 }}

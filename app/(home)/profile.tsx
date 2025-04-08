@@ -32,7 +32,7 @@ const StatisticsLabel = () => {
       <Text
         style={{
           fontWeight: 600,
-          color: "white",
+          color: "#F8F9FA",
           fontSize: 16,
         }}
       >

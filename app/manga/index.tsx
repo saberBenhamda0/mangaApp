@@ -36,11 +36,11 @@ const ChaptersRowComponent = ({ index, number }: { index: number; number: number
       >
         <Image
           style={{ width: 25, height: 25 }}
-          source={require("@/assets/images/mangaApp.png")}
+          source={require("@/assets/icons/eye.png")}
         />
         <Image
           style={{ width: 25, height: 25 }}
-          source={require("@/assets/images/mangaApp.png")}
+          source={require("@/assets/icons/download.png")}
         />
       </View>
     </View>
@@ -195,7 +195,7 @@ const index = () => {
               }}
             >
               <Image
-                source={require("@/assets/images/mangaApp.png")}
+                source={require("@/assets/icons/flag.png")}
                 style={{ width: 25, height: 25 }}
               />
               <Text style={{ color: "white", fontSize: 16, fontWeight: 500 }}>
@@ -223,7 +223,7 @@ const index = () => {
                 }}
               >
                 <Image
-                  source={require("@/assets/images/mangaApp.png")}
+                  source={require("@/assets/icons/star.png")}
                   style={{ width: 25, height: 25 }}
                 />
                 <Text style={{ fontWeight: 600, fontSize: 18, color: "white" }}>
@@ -240,7 +240,7 @@ const index = () => {
                 }}
               >
                 <Image
-                  source={require("@/assets/images/mangaApp.png")}
+                  source={require("@/assets/icons/heart.png")}
                   style={{ width: 25, height: 25 }}
                 />
                 <Text style={{ fontWeight: 600, fontSize: 18, color: "white" }}>

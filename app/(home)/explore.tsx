@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ScrollView, ImageSourcePropType } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Colors } from "@/constants/Colors";
 import { Image } from "react-native";
@@ -10,7 +10,7 @@ interface dataProps {
   title: string;
   description: string;
   rating: number;
-  imageUrl: string;
+  imageUrl: ImageSourcePropType;
 }
 
 const Explore = () => {
@@ -21,12 +21,27 @@ const Explore = () => {
     const handleGetData = async () => {
       const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
-      setData(data.products.map((product: any) => ({
-        title: product.title,
-        description: product.description,
-        rating: product.rating,
-        imageUrl: product.thumbnail, // You can change this to use "images[0]" if you want the full image
-      })));
+      setData([
+        {
+          "title": "The Great Adventure",
+          "description": "An epic tale of heroism and discovery.",
+          "rating": 4.8,
+          "imageUrl": require("@/assets/mangas/manga1.jpeg")
+        },
+        {
+          "title": "Mystery in the Dark",
+          "description": "A suspenseful thriller that keeps you guessing.",
+          "rating": 4.5,
+          "imageUrl": require("@/assets/mangas/manga2.jpeg")
+        },
+        {
+          "title": "Romance by the Lake",
+          "description": "A heartfelt love story set in a tranquil lakeside town.",
+          "rating": 4.2,
+          "imageUrl": require("@/assets/mangas/manga3.jpeg")
+        }
+      ]
+      );
     };
     handleGetData();
   }, []); // Empty dependency array to fetch only once when the component mounts

@@ -1,10 +1,10 @@
-  import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+  import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from "react-native";
   import React from "react";
   import typographie from "@/constants/Typographie";
   import { Colors } from "@/constants/Colors";
 import { Float } from "react-native/Libraries/Types/CodegenTypes";
 
-  const MangaWideComponent = ({title, description, rating, imageUrl} : {title:string, description:string, rating:Float, imageUrl:string}) => {
+  const MangaWideComponent = ({title, description, rating, imageUrl} : {title:string, description:string, rating:Float, imageUrl:ImageSourcePropType}) => {
 
 
     if(description.length > 150){
@@ -28,7 +28,7 @@ import { Float } from "react-native/Libraries/Types/CodegenTypes";
         activeOpacity={0.7}
       >
         <Image
-          source={{uri:imageUrl}}
+          source={imageUrl}
           style={{
             width: "100%",
             height: "100%",
@@ -109,7 +109,7 @@ import { Float } from "react-native/Libraries/Types/CodegenTypes";
 
         <View style={{ width: "35%", height: "95%", zIndex: 2 }}>
           <Image
-          source={{uri:imageUrl}}
+          source={imageUrl}
           style={{ width: "100%", height: "100%" }}
           />
         </View>

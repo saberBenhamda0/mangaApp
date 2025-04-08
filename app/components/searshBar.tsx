@@ -20,8 +20,6 @@ const SearshBar = () => {
   >
     <View
       style={{
-        borderColor: "red",
-        borderWidth: 2,
         height: "100%",
         display: "flex",
         gap: 8,
@@ -32,7 +30,7 @@ const SearshBar = () => {
     >
       <Image
         style={{ width: 25, height: 25, marginVertical: "auto" }}
-        source={require("@/assets/images/mangaApp.png")}
+        source={require("@/assets/icons/three.png")}
       />
       <Text
         style={{
@@ -48,8 +46,6 @@ const SearshBar = () => {
 
     <View
       style={{
-        borderColor: "red",
-        borderWidth: 2,
         width: "20%",
         height: "100%",
         display: "flex",
@@ -60,11 +56,11 @@ const SearshBar = () => {
     >
       <Image
         style={{ width: 25, height: 25, marginVertical: "auto" }}
-        source={require("@/assets/images/mangaApp.png")}
+        source={require("@/assets/icons/searsh.png")}
       />
       <Image
         style={{ width: 25, height: 25, marginVertical: "auto" }}
-        source={require("@/assets/images/mangaApp.png")}
+        source={require("@/assets/icons/types.png")}
       />
     </View>
   </View>
