@@ -8,15 +8,17 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { Colors } from "@/constants/Colors";
 import { BottomTabBar } from "@react-navigation/bottom-tabs";
 import typographie from "@/constants/Typographie";
 import { withDecay } from "react-native-reanimated";
 import Card from "../components/Card";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 const StatisticsLabel = () => {
+  
   return (
     <View
       style={{
@@ -110,6 +112,14 @@ const FavouritesSection = () => {
 }
 
 const Profile = () => {
+
+  useEffect(() => {
+    return () => {
+      AsyncStorage.setItem("previousPage", "profile")
+    }
+
+  }, [])
+  
   return (
     <ScrollView
     

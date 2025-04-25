@@ -4,6 +4,7 @@ import { Colors } from "@/constants/Colors";
 import { Image } from "react-native";
 import MangaWideComponent from "../components/mangaWideComponent";
 import SearshBar from "../components/searshBar";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Define the dataProps interface correctly
 interface dataProps {
@@ -15,6 +16,13 @@ interface dataProps {
 
 const Explore = () => {
   const [data, setData] = useState<dataProps[]>([]); // Corrected the state type
+
+  useEffect(() => {
+    return () => {
+      AsyncStorage.setItem("previousPage", "explore")
+    }
+
+  }, [])
 
   // Fetch data on mount
   useEffect(() => {

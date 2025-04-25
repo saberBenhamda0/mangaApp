@@ -1,17 +1,27 @@
 import { Colors } from "@/constants/Colors";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import { ScrollView, useWindowDimensions } from "react-native";
 import { View, Text, Image, TouchableOpacity } from "react-native";
+import { FlatList } from "react-native-reanimated/lib/typescript/Animated";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 
-
-const ChaptersRowComponent = ({ index, number }: { index: number; number: number }) => {
+const ChaptersRowComponent = ({
+  index,
+  number,
+}: {
+  index: number;
+  number: number;
+}) => {
   const isTopBorderExist = index === 0 ? 0 : 0;
   return (
-    <View
-    key={index}
+    <TouchableOpacity
+      activeOpacity={0.3}
+      key={index}
       style={{
         height: 40,
         width: "100%",
@@ -43,22 +53,27 @@ const ChaptersRowComponent = ({ index, number }: { index: number; number: number
           source={require("@/assets/icons/download.png")}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-
 const Chapters = () => {
-  const chapters_arrays = [1, 2, 3, 4, 5, 6, 7];
+  const chapters_arrays = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+  ];
   return (
-    <ScrollView style={{height:'105%', flex:1}}>
-      {chapters_arrays.map((index, chapter) => (
-        <ChaptersRowComponent  index={index} number={chapter} />
+    <ScrollView
+      contentContainerStyle={{
+        paddingBottom: 10,
+      }}
+      style={{ flex: 1 }}
+    >
+      {chapters_arrays.map((chapter, index) => (
+        <ChaptersRowComponent index={index} number={chapter} />
       ))}
     </ScrollView>
-  )
-}
-
+  );
+};
 
 const Informations = () => {
   return (
@@ -89,6 +104,18 @@ const routes = [
 ];
 
 const index = () => {
+  const router = useRouter()
+
+  const handleBack = async ()  =>  {
+    const previousPage = await AsyncStorage.getItem("previousPage");
+
+    if (previousPage) {
+      const destination = `/(home)/${previousPage}`;
+
+      // @ts-ignore
+      router.push(destination);
+    }
+  }
   // In a real app,you would fetch manga details based on the id
   const manga = {
     title: "Manga Title",
@@ -116,6 +143,29 @@ const index = () => {
           position: "relative",
         }}
       >
+        <TouchableOpacity
+          style={{
+            position: "absolute",
+            zIndex: 3,
+            width: 40,
+            height: 40,
+            top: 0,
+            left: 0,
+          }}
+          onPress={handleBack}
+        >
+          <Image
+            source={require("@/assets/icons/back.png")}
+            style={{
+              position: "absolute",
+              zIndex: 3,
+              width: 40,
+              height: 40,
+              top: 0,
+              left: 0,
+            }}
+          />
+        </TouchableOpacity>
         <Image
           source={require("@/assets/images/mangaApp.png")}
           style={{
@@ -127,6 +177,7 @@ const index = () => {
             left: 0,
           }}
         />
+
         <LinearGradient
           style={{
             width: "100%",
@@ -145,7 +196,7 @@ const index = () => {
             width: "95%",
             margin: "auto",
             height: "90%",
-            top: "40%",
+            top: "30%",
             left: 0,
             zIndex: 3,
             display: "flex",
@@ -275,7 +326,8 @@ const index = () => {
       <View
         style={{
           width: "100%",
-          height: "100%",
+          flex: 1,
+          paddingTop: 35,
           backgroundColor: Colors.dark.backgroundPrimary,
         }}
       >
